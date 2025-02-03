@@ -169,8 +169,21 @@ def main(page: ft.Page):
         area_principal.controls.append(linha_resultados)
         page.update()
 
-    def exibir_menu_principal(e):
-        ft.Text("Menu Principal")
+    def exibir_menu_principal():
+       area_principal.controls.clear()
+       area_principal.controls.append(
+           ft.Column(
+               [
+                   ft.Text("Bem-vindo ao Sistema de Análise de Vendas", size=20, weight="bold"),
+                    ft.Text("Selecione uma opção no menu lateral para começar.", size=16),
+                    ft.Image(src="https://via.placeholder.com/600x300.png?text=Imagem+de+Exemplo", width=600, height=300),
+                ],
+                alignment=ft.MainAxisAlignment.CENTER,
+                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+               
+           )
+       )
+       page.update()
 
     # Função para exibir as top 10 lojas com maior vendas
     def exibir_top_10_maior(e):
@@ -235,7 +248,7 @@ def main(page: ft.Page):
     # Função para atualizar a tela com base na seleção do menu
     def atualizar_tela(index):
         if index == 0:
-            exibir_menu_principal(None)
+            exibir_menu_principal()
         elif index == 1:
             exibir_top_10_maior(None)
         elif index == 2:
